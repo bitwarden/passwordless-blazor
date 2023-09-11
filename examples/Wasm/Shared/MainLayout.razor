@@ -1,0 +1,35 @@
+﻿@inherits LayoutComponentBase
+@inject Passwordless.Examples.Wasm.Authentication.CustomAuthenticationStateProvider Auth
+
+@using Passwordless.AspNetCore.Client
+@using System.Security.Claims;
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <AuthorizeView>
+                <Authorized>
+                    <button class="btn btn-link" @onclick="LogoutAsync">Logout</button>
+                </Authorized>
+                <NotAuthorized>
+                    <a href="login">Login</a>
+                </NotAuthorized>
+            </AuthorizeView>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+@code {
+    public async Task LogoutAsync()
+    {
+        await Auth.LogoutAsync();
+    }
+}

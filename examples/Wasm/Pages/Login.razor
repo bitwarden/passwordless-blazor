@@ -1,0 +1,9 @@
+@page "/login"
+
+<EditForm Model="Model" OnSubmit="LoginAsync">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <InputText id="email" @bind-Value="Model!.Email" class="form-control" />
+  </div>
+  <button type="submit" class="btn btn-primary mt-2">Login</button>
+</EditForm>

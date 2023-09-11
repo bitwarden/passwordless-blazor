@@ -1,0 +1,15 @@
+﻿@page "/register"
+
+<PageTitle>Register</PageTitle>
+<EditForm Model="Model" OnSubmit="@RegisterAsync">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <InputText id="email" @bind-Value="Model.Email" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="nickname">Nickname</label>
+    <InputText id="nickname" @bind-Value="Model.Nickname" class="form-control"></InputText>
+  </div>
+  <button type="submit" class="btn btn-primary mt-2">Register</button>
+</EditForm>
+<p>@Error</p>
